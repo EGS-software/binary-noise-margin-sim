@@ -25,3 +25,21 @@ class ComputingArchitectureSim:
         read_number = max(0, read_number)
         
         return transmitted_voltage, received_voltage, read_number
+
+    def simulate_binary_hardware(self, bit_value):
+        """Simulates sending a binary bit (0 or 1) over a 5V wire."""
+        # 0 is 0V, 1 is 5V
+        transmitted_voltage = self.voltage_max if bit_value == 1 else 0.0
+        
+        # Apply thermal noise drop
+        received_voltage = transmitted_voltage + self.noise
+        
+        # Binary reading logic: > 3V is 1, < 2V is 0
+        if received_voltage >= 3.0:
+            read_bit = 1
+        elif received_voltage <= 2.0:
+            read_bit = 0
+        else:
+            read_bit = None # Corrupted data (Undefined state)
+            
+        return transmitted_voltage, received_voltage, read_bit
