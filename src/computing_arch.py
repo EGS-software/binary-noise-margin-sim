@@ -60,3 +60,17 @@ class ComputingArchitectureSim:
         binary_str = bin(number)[2:] # Removes the '0b' prefix
         bits_needed = len(binary_str)
         return bits_needed, binary_str
+
+    # ==========================================
+    # PART 3: Logical Cost vs Physical Viability
+    # ==========================================
+    
+    def compare_costs(self, number):
+        """Compares logical chain length vs physical component count."""
+        decimal_len = len(str(number))
+        binary_len = len(bin(number)[2:])
+        
+        print(f"--- Logical Cost Trade-off for number {number} ---")
+        print(f"Decimal length: {decimal_len} digits")
+        print(f"Binary length: {binary_len} bits (Longer chain = Higher logical cost)")
+        print(f"Why it's worth it: {binary_len} micro-transistors are easier to print via photolithography than {decimal_len * 10} macro-components.")
