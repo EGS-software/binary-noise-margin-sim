@@ -54,3 +54,9 @@ class ComputingArchitectureSim:
         decimal_digits = len(num_str)
         valves_needed = decimal_digits * 10
         return valves_needed
+        
+    def calculate_binary_transistors(self, number):
+        """Calculates transistors needed for pure binary (1 per bit)."""
+        binary_str = bin(number)[2:] # Removes the '0b' prefix
+        bits_needed = len(binary_str)
+        return bits_needed, binary_str
