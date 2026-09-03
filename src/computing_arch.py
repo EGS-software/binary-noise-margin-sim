@@ -43,3 +43,14 @@ class ComputingArchitectureSim:
             read_bit = None # Corrupted data (Undefined state)
             
         return transmitted_voltage, received_voltage, read_bit
+
+    # ==========================================
+    # PART 2: The ENIAC Paradox (Physical Cost)
+    # ==========================================
+    
+    def calculate_eniac_valves(self, number):
+        """Calculates how many valves ENIAC needed (10 per decimal digit)."""
+        num_str = str(number)
+        decimal_digits = len(num_str)
+        valves_needed = decimal_digits * 10
+        return valves_needed
