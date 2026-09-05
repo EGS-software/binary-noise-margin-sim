@@ -1,4 +1,4 @@
-from .src import ComputingArchitectureSim
+from src import ComputingArchitectureSim
 
 if __name__ == "__main__":
     sim = ComputingArchitectureSim(voltage_max=5.0, thermal_noise=-0.8)
